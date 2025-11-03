@@ -1,0 +1,4 @@
+http://localhost:9000/users/register
+http://localhost:9000/login
+http://localhost:9000/users
+http://localhost:9000/users/config
