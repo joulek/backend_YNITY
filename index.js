@@ -96,7 +96,7 @@ app.use("/api/ai", chapterAgent);
 // ✅ Logout
 app.get("/auth/logout", (req, res) => {
   req.logout(() => {
-    res.redirect("http://localhost:5173/login");
+    res.redirect("https://front-ynity.onrender.com/login");
   });
 });
 
