@@ -6,7 +6,7 @@ exports.generateImage = async (prompt) => {
   }
 
   try {
-    const response = await axios.post("http://localhost:8003/agent/image", {
+    const response = await axios.post("https://agents-python.onrender.com/agent/image", {
       prompt: prompt,
     });
 

@@ -66,7 +66,7 @@ socket.on("playerReady", async ({ roomId, courseId }) => {
     let coachMessage = ""; // ✅ On le déclare ici AVANT utilisation
 
     const courseIdUsed = room.courseId;
-    const res = await fetch("http://localhost:8003/quiz/init", {
+    const res = await fetch("https://agents-python-quiz.onrender.com/quiz/init", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ courseId: courseIdUsed }),
@@ -104,7 +104,7 @@ socket.on("playerReady", async ({ roomId, courseId }) => {
     return;
   }
 
-  const res = await fetch("http://localhost:8003/quiz/next", {
+  const res = await fetch("https://agents-python-quiz.onrender.com/quiz/next", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ questions, index: qIndex }),

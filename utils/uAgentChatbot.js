@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const getAgentChatbotResponse = async (messages) => {
   try {
-    const res = await axios.post("http://localhost:8003/agent/chat", {
+    const res = await axios.post("https://agents-python.onrender.com/agent/chat", {
       messages,
     });
     return res.data.reply;

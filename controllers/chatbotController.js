@@ -82,7 +82,7 @@ exports.askChatbot = async (req, res) => {
 
     if (isCoachMessage) {
       // 🔹 Call CoachAgent only for motivational messages
-      const coachRes = await axios.post("http://127.0.0.1:8002/agent/chat", {
+      const coachRes = await axios.post("https://agents-python-coach.onrender.com/agent/chat", {
         prompt: question,
       });
 
@@ -116,7 +116,7 @@ exports.askChatbot = async (req, res) => {
         .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.content}`)
         .join("\n") + `\nUser: ${question}`;
 
-    const chatbotRes = await axios.post("http://127.0.0.1:8001/agent/chat", {
+    const chatbotRes = await axios.post("https://agents-python.onrender.com/agent/chat", {
       prompt: historyPrompt,
     });
 
@@ -125,7 +125,7 @@ exports.askChatbot = async (req, res) => {
     // 🔹 Generate title for new conversation
     if (isNew) {
       const titlePrompt = `Generate a short title for this conversation: ${question}`;
-      const titleRes = await axios.post("http://127.0.0.1:8001/agent/chat", {
+      const titleRes = await axios.post("https://agents-python.onrender.com/agent/chat", {
         prompt: titlePrompt,
       });
       conversation.title = (titleRes.data.reply || "New conversation").slice(0, 50);
